@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuwanda Engineering — Services & Politique IA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+        /* Background Mesh Gradient Glow */
+        .glow-bg {
+            background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.05) 35%, rgba(15, 23, 42, 0) 70%);
+        }
+        /* Glassmorphism Effect */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(30, 41, 59, 0.7);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.2);
+        }
+        /* Active Tab Styling */
+        .tab-btn.active-tab {
+            background-color: #4f46e5;
+            color: #ffffff;
+            border-color: #6366f1;
+            box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.39);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white relative min-h-screen">
+
+    <!-- Background Glow Effect -->
+    <div class="fixed inset-0 glow-bg pointer-events-none z-0"></div>
+
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo & Name -->
+            <a href="#accueil" class="flex items-center gap-3 text-lg font-bold tracking-tight text-white group">
+                <span class="tracking-tight text-white font-extrabold text-base sm:text-lg">Nuwanda <span class="text-indigo-400">Engineering</span></span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-slate-800/80">
+                <a href="#accueil" data-i18n="nav_home" class="nav-link text-xs font-medium px-4 py-2 rounded-full text-slate-300 hover:text-white hover:bg-slate-800 transition-all">Accueil</a>
+                <a href="#a-propos" data-i18n="nav_about" class="nav-link text-xs font-medium px-4 py-2 rounded-full text-slate-300 hover:text-white hover:bg-slate-800 transition-all">À propos</a>
+                <a href="#services" data-i18n="nav_services" class="nav-link text-xs font-medium px-4 py-2 rounded-full text-slate-300 hover:text-white hover:bg-slate-800 transition-all">Services</a>
+                <a href="#contact" data-i18n="nav_contact" class="nav-link text-xs font-medium px-4 py-2 rounded-full text-slate-300 hover:text-white hover:bg-slate-800 transition-all">Contact</a>
+                <a href="#politique-ia" data-i18n="nav_ai_policy" class="nav-link text-xs font-medium px-4 py-2 rounded-full text-slate-300 hover:text-white hover:bg-slate-800 transition-all">Politique IA</a>
+            </nav>
+
+            <!-- Language Switcher Desktop -->
+            <div class="hidden md:flex items-center gap-1 bg-slate-900/80 border border-slate-800 p-1 rounded-full text-xs font-semibold shadow-inner">
+                <button onclick="setLanguage('fr')" class="btn-lang-fr flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-200 bg-indigo-600 text-white shadow-sm">
+                    <svg class="w-4 h-3 rounded-sm overflow-hidden" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg>
+                    <span>FR</span>
+                </button>
+                <button onclick="setLanguage('en')" class="btn-lang-en flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-200 text-slate-400 hover:text-white">
+                    <svg class="w-4 h-3 rounded-sm overflow-hidden" viewBox="0 0 60 30"><clipPath id="s1"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="t1"><path d="M30,15 L0,0 v30 z M30,15 L60,0 v30 z M30,15 L0,0 h60 z M30,15 L0,30 h60 z"/></clipPath><g clip-path="url(#s1)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" clip-path="url(#t1)"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>
+                    <span>EN</span>
+                </button>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div class="flex items-center gap-3 md:hidden">
+                <div class="flex items-center bg-slate-900/80 border border-slate-800 p-1 rounded-full text-xs font-semibold">
+                    <button onclick="setLanguage('fr')" class="btn-lang-fr flex items-center gap-1 px-2 py-1 rounded-full transition-all duration-200 bg-indigo-600 text-white">
+                        <svg class="w-3.5 h-2.5 rounded-sm overflow-hidden" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg>
+                        <span class="text-[11px]">FR</span>
+                    </button>
+                    <button onclick="setLanguage('en')" class="btn-lang-en flex items-center gap-1 px-2 py-1 rounded-full transition-all duration-200 text-slate-400">
+                        <svg class="w-3.5 h-2.5 rounded-sm overflow-hidden" viewBox="0 0 60 30"><clipPath id="sm"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="tm"><path d="M30,15 L0,0 v30 z M30,15 L60,0 v30 z M30,15 L0,0 h60 z M30,15 L0,30 h60 z"/></clipPath><g clip-path="url(#sm)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" clip-path="url(#tm)"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>
+                        <span class="text-[11px]">EN</span>
+                    </button>
+                </div>
+                <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Menu principal">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-950/95 px-4 pt-2 pb-6 space-y-2">
+            <a href="#accueil" data-i18n="nav_home" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Accueil</a>
+            <a href="#a-propos" data-i18n="nav_about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">À propos</a>
+            <a href="#services" data-i18n="nav_services" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Services</a>
+            <a href="#contact" data-i18n="nav_contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Contact</a>
+            <a href="#politique-ia" data-i18n="nav_ai_policy" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Politique IA</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <section id="accueil" class="min-h-[calc(100vh-4rem)] flex flex-col justify-center py-16 sm:py-24">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-medium w-max mb-6">
+                <span class="flex h-2 w-2 rounded-full bg-indigo-400 animate-ping"></span>
+                <span data-i18n="hero_badge">Disponible pour de nouvelles missions</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-none">
+                <span data-i18n="hero_title_1">Ingénierie & Services</span> <br class="hidden sm:inline">
+                <span data-i18n="hero_title_2" class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    numériques sur-mesure
+                </span>
+            </h1>
+
+            <p data-i18n="hero_desc" class="max-w-2xl text-lg sm:text-xl text-slate-400 font-normal leading-relaxed mb-10 text-justify">
+                Accompagnement stratégique et technique : de la conception d'architectures à la simulation, l'analyse et la revue de code haute performance.
+            </p>
+
+            <div class="flex flex-wrap gap-4 items-center">
+                <a href="#services" class="px-6 py-3.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-xl shadow-indigo-600/25 transition-all duration-300 flex items-center gap-2 group active:scale-95">
+                    <span data-i18n="hero_cta_services">Découvrir mes services</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#contact" data-i18n="hero_cta_contact" class="px-6 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-semibold text-sm transition-all duration-300 active:scale-95">
+                    Discuter d'un projet
+                </a>
+            </div>
+
+            <!-- Key metrics / Badges -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-16 pt-8 border-t border-slate-800/60">
+                <div class="p-4 rounded-xl glass-card">
+                    <div data-i18n="metric_1_title" class="text-2xl font-bold text-white">5+ Domaines</div>
+                    <div data-i18n="metric_1_sub" class="text-xs text-slate-400 mt-1">d'expertise</div>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <div data-i18n="metric_2_title" class="text-2xl font-bold text-white">100%</div>
+                    <div data-i18n="metric_2_sub" class="text-xs text-slate-400 mt-1">Livrables documentés</div>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <div data-i18n="metric_3_title" class="text-2xl font-bold text-white">IA Éthique</div>
+                    <div data-i18n="metric_3_sub" class="text-xs text-slate-400 mt-1">Conformité & Transparence</div>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <div data-i18n="metric_4_title" class="text-2xl font-bold text-white">Sur-mesure</div>
+                    <div data-i18n="metric_4_sub" class="text-xs text-slate-400 mt-1">Solutions adaptées</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION À PROPOS DÛMENT MODIFIÉE -->
+        <section id="a-propos" class="py-20 border-t border-slate-800/60">
+            <div class="w-full">
+                <div class="inline-flex items-center gap-2 text-indigo-400 text-xs font-bold tracking-widest uppercase mb-3">
+                    <i data-lucide="user" class="w-4 h-4"></i> <span data-i18n="about_tag">À propos de Nuwanda Engineering</span>
+                </div>
+                <h2 data-i18n="about_title" class="text-3xl sm:text-4xl font-bold text-white mb-8">
+                    Excellence technique & méthodologie rigoureuse
+                </h2>
+
+                <div class="space-y-10 mb-12">
+                    <!-- Bloc Formation -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                        <div class="md:col-span-2">
+                            <h3 data-i18n="about_formation_title" class="text-xl font-bold text-indigo-300 mb-3 flex items-center gap-2">
+                                <i data-lucide="graduation-cap" class="w-5 h-5"></i> Ma formation
+                            </h3>
+                            <p data-i18n="about_p1" class="text-slate-400 leading-relaxed text-justify">
+                                Cabinet d'ingénierie et de conseil technique, Nuwanda Engineering vous accompagne dans l'analyse, la conception, la documentation, la simulation et la revue de vos projets numériques.
+                            </p>
+                        </div>
+                        <div class="md:col-span-1">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Formation en ingénierie et électronique" class="w-full h-48 object-cover rounded-2xl border border-slate-800/80 shadow-xl">
+                        </div>
+                    </div>
+
+                    <!-- Bloc Expérience -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                        <div class="md:col-span-2">
+                            <h3 data-i18n="about_experience_title" class="text-xl font-bold text-indigo-300 mb-3 flex items-center gap-2">
+                                <i data-lucide="briefcase" class="w-5 h-5"></i> Mon expérience
+                            </h3>
+                            <p data-i18n="about_p2" class="text-slate-400 leading-relaxed text-justify">
+                                Notre démarche combine précision technique, respect des normes de sécurité et intégration éthique des technologies avancées comme l'IA générative.
+                            </p>
+                        </div>
+                        <div class="md:col-span-1">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Expérience en conception électronique" class="w-full h-48 object-cover rounded-2xl border border-slate-800/80 shadow-xl">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exemples de fonctions électroniques réalisées -->
+                <div>
+                    <h3 data-i18n="about_examples_title" class="text-lg font-semibold text-white mb-4">Exemple de fonctions électroniques réalisées</h3>
+                    <div class="p-6 rounded-2xl glass-card">
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 text-sm text-slate-400 list-disc list-inside">
+                            <li data-i18n="about_ex_1" class="text-justify">EXEMPLE_1</li>
+                            <li data-i18n="about_ex_2" class="text-justify">EXEMPLE_2</li>
+                            <li data-i18n="about_ex_3" class="text-justify">EXEMPLE_3</li>
+                            <li data-i18n="about_ex_4" class="text-justify">EXEMPLE_4</li>
+                            <li data-i18n="about_ex_5" class="text-justify">EXEMPLE_5</li>
+                            <li data-i18n="about_ex_6" class="text-justify">EXEMPLE_6</li>
+                            <li data-i18n="about_ex_7" class="text-justify">EXEMPLE_7</li>
+                            <li data-i18n="about_ex_8" class="text-justify">EXEMPLE_8</li>
+                            <li data-i18n="about_ex_9" class="text-justify">EXEMPLE_9</li>
+                            <li data-i18n="about_ex_10" class="text-justify">EXEMPLE_10</li>
+                            <li data-i18n="about_ex_11" class="text-justify">EXEMPLE_11</li>
+                            <li data-i18n="about_ex_12" class="text-justify">EXEMPLE_12</li>
+                            <li data-i18n="about_ex_13" class="text-justify">EXEMPLE_13</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-20 border-t border-slate-800/60">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <div class="inline-flex items-center gap-2 text-indigo-400 text-xs font-bold tracking-widest uppercase mb-3">
+                    <i data-lucide="layers" class="w-4 h-4"></i> <span data-i18n="services_tag">Expertise & Prestations</span>
+                </div>
+                <h2 data-i18n="services_title" class="text-3xl sm:text-4xl font-bold text-white mb-4">Mes Services</h2>
+                <p data-i18n="services_desc" class="text-slate-400 text-sm text-justify">
+                    Découvrez l'éventail complet de nos prestations structurées en 6 piliers fondamentaux.
+                </p>
+
+                <!-- 6 Tab Buttons -->
+                <div class="flex justify-center gap-2 mt-8 flex-wrap">
+                    <button onclick="switchServiceTab('conception')" id="tab-conception" class="tab-btn active-tab px-4 py-2 rounded-full text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+                        <i data-lucide="circuit-board" class="w-3.5 h-3.5"></i> <span data-i18n="tab_conception">Conception</span>
+                    </button>
+                    <button onclick="switchServiceTab('analyse')" id="tab-analyse" class="tab-btn px-4 py-2 rounded-full text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+                        <i data-lucide="scan-search" class="w-3.5 h-3.5"></i> <span data-i18n="tab_analyse">Analyse</span>
+                    </button>
+                    <button onclick="switchServiceTab('documentation')" id="tab-documentation" class="tab-btn px-4 py-2 rounded-full text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+                        <i data-lucide="file-text" class="w-3.5 h-3.5"></i> <span data-i18n="tab_documentation">Documentation</span>
+                    </button>
+                    <button onclick="switchServiceTab('simulation')" id="tab-simulation" class="tab-btn px-4 py-2 rounded-full text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+                        <i data-lucide="waves" class="w-3.5 h-3.5"></i> <span data-i18n="tab_simulation">Simulation</span>
+                    </button>
+                    <button onclick="switchServiceTab('revue')" id="tab-revue" class="tab-btn px-4 py-2 rounded-full text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+                        <i data-lucide="check-square" class="w-3.5 h-3.5"></i> <span data-i18n="tab_revue">Revue</span>
+                    </button>
+                    <button onclick="switchServiceTab('conseil')" id="tab-conseil" class="tab-btn px-4 py-2 rounded-full text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition-all flex items-center gap-2">
+                        <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i> <span data-i18n="tab_conseil">Conseil / Pédagogie</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content Display Panel -->
+            <div id="service-content-container" class="glass-panel p-6 sm:p-10 rounded-3xl relative overflow-hidden transition-all duration-300">
+                
+                <!-- Tab 1: Conception -->
+                <div id="content-conception" class="service-panel space-y-8">
+                    <div class="flex flex-col md:flex-row items-start justify-between gap-6">
+                        <div class="space-y-3 max-w-2xl">
+                            <span data-i18n="conc_service_num" class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold border border-indigo-500/20">Service 01 / 06</span>
+                            <h3 data-i18n="conc_title" class="text-2xl sm:text-3xl font-bold text-white">Conception & Architecture Web</h3>
+                            <p data-i18n="conc_desc" class="text-slate-400 text-sm leading-relaxed text-justify">
+                                Modélisation globale et structuration technique de vos applications. Nous concevons des architectures hautement scalables, modulaires et pérennes adaptées à vos contraintes.
+                            </p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 shrink-0">
+                            <i data-lucide="circuit-board" class="w-10 h-10"></i>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-800/80">
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="workflow" class="w-4 h-4 text-indigo-400"></i> <span data-i18n="conc_card1_title">Design UI/UX</span>
+                            </div>
+                            <p data-i18n="conc_card1_desc" class="text-xs text-slate-400 text-justify">Wireframes, maquettes interactives et systèmes de design adaptatifs.</p>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="route" class="w-4 h-4 text-indigo-400"></i> <span data-i18n="conc_card2_title">Architecture de Données</span>
+                            </div>
+                            <p data-i18n="conc_card2_desc" class="text-xs text-slate-400 text-justify">Schématisation BDD, API GraphQL/REST et flux de données sécurisés.</p>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="box" class="w-4 h-4 text-indigo-400"></i> <span data-i18n="conc_card3_title">Modélisation</span>
+                            </div>
+                            <p data-i18n="conc_card3_desc" class="text-xs text-slate-400 text-justify">Définition des patterns microservices ou monolithiques modulaires.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Analyse -->
+                <div id="content-analyse" class="service-panel hidden space-y-8">
+                    <div class="flex flex-col md:flex-row items-start justify-between gap-6">
+                        <div class="space-y-3 max-w-2xl">
+                            <span data-i18n="ana_service_num" class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-bold border border-purple-500/20">Service 02 / 06</span>
+                            <h3 data-i18n="ana_title" class="text-2xl sm:text-3xl font-bold text-white">Analyse, Audits & Diagnostics</h3>
+                            <p data-i18n="ana_desc" class="text-slate-400 text-sm leading-relaxed text-justify">
+                                Diagnostic approfondi de vos systèmes existants. Nous analysons le code, la sécurité, les performances et l'expérience utilisateur pour identifier les blocages et opportunités.
+                            </p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/20 shrink-0">
+                            <i data-lucide="scan-search" class="w-10 h-10"></i>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-800/80">
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="alert-triangle" class="w-4 h-4 text-purple-400"></i> <span data-i18n="ana_card1_title">Audit de Performance</span>
+                            </div>
+                            <p data-i18n="ana_card1_desc" class="text-xs text-slate-400 text-justify">Analyse du temps de chargement, Core Web Vitals et optimisation du rendu.</p>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="gauge" class="w-4 h-4 text-purple-400"></i> <span data-i18n="ana_card2_title">Analyse Fonctionnelle</span>
+                            </div>
+                            <p data-i18n="ana_card2_desc" class="text-xs text-slate-400 text-justify">Étude de rentabilité, adéquation du besoin métier et faisabilité technique.</p>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="thermometer" class="w-4 h-4 text-purple-400"></i> <span data-i18n="ana_card3_title">Audit de Sécurité</span>
+                            </div>
+                            <p data-i18n="ana_card3_desc" class="text-xs text-slate-400 text-justify">Détection des vulnérabilités, fuites de données et conformité RGPD.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Documentation -->
+                <div id="content-documentation" class="service-panel hidden space-y-8">
+                    <div class="flex flex-col md:flex-row items-start justify-between gap-6">
+                        <div class="space-y-3 max-w-2xl">
+                            <span data-i18n="doc_service_num" class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-xs font-bold border border-pink-500/20">Service 03 / 06</span>
+                            <h3 data-i18n="doc_title" class="text-2xl sm:text-3xl font-bold text-white">Documentation Technique & Métier</h3>
+                            <p data-i18n="doc_desc" class="text-slate-400 text-sm leading-relaxed text-justify">
+                                Rédaction de supports techniques exhaustifs et parfaitement lisibles. Assurez la pérennité de vos projets et facilitez l'intégration de nouveaux collaborateurs.
+                            </p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-pink-500/10 text-pink-400 border border-pink-500/20 shrink-0">
+                            <i data-lucide="file-text" class="w-10 h-10"></i>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-800/80">
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="clipboard-list" class="w-4 h-4 text-pink-400"></i> <span data-i18n="doc_card1_title">Specs API & Code</span>
+                            </div>
+                            <p data-i18n="doc_card1_desc" class="text-xs text-slate-400 text-justify">Documentation Swagger/OpenAPI, guides de composants et standards de dev.</p>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="book-open" class="w-4 h-4 text-pink-400"></i> <span data-i18n="doc_card2_title">Guides Utilisateurs</span>
+                            </div>
+                            <p data-i18n="doc_card2_desc" class="text-xs text-slate-400 text-justify">Manuels d'administration, FAQ dynamiques et procédures opérationnelles.</p>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="files" class="w-4 h-4 text-pink-400"></i> <span data-i18n="doc_card3_title">Cahiers des Charges</span>
+                            </div>
+                            <p data-i18n="doc_card3_desc" class="text-xs text-slate-400 text-justify">Rédaction détaillée des exigences, backlog de fonctionnalités et critères de recette.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Simulation -->
+                <div id="content-simulation" class="service-panel hidden space-y-8">
+                    <div class="flex flex-col md:flex-row items-start justify-between gap-6">
+                        <div class="space-y-3 max-w-2xl">
+                            <span data-i18n="sim_service_num" class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold border border-emerald-500/20">Service 04 / 06</span>
+                            <h3 data-i18n="sim_title" class="text-2xl sm:text-3xl font-bold text-white">Simulation & Prototypage</h3>
+                            <p data-i18n="sim_desc" class="text-slate-400 text-sm leading-relaxed text-justify">
+                                Modélisation d'environnements et simulation de charges avant le déploiement en production. Réduisez le risque d'échec en éprouvant vos concepts dans un cadre contrôlé.
+                            </p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                            <i data-lucide="waves" class="w-10 h-10"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 5: Revue -->
+                <div id="content-revue" class="service-panel hidden space-y-8">
+                    <div class="flex flex-col md:flex-row items-start justify-between gap-6">
+                        <div class="space-y-3 max-w-2xl">
+                            <span data-i18n="rev_service_num" class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold border border-amber-500/20">Service 05 / 06</span>
+                            <h3 data-i18n="rev_title" class="text-2xl sm:text-3xl font-bold text-white">Revue de Code & Contrôle Qualité</h3>
+                            <p data-i18n="rev_desc" class="text-slate-400 text-sm leading-relaxed text-justify">
+                                Inspection minutieuse du code source et contrôle qualité (QA). Garantissez un niveau élevé de maintenabilité, la suppression des dettes techniques et l'application des meilleures pratiques.
+                            </p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/20 shrink-0">
+                            <i data-lucide="check-square" class="w-10 h-10"></i>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-800/80">
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="file-search" class="w-4 h-4 text-amber-400"></i> <span data-i18n="rev_card1_title">Code Review</span>
+                            </div>
+                            <p data-i18n="rev_card1_desc" class="text-xs text-slate-400 text-justify">Relecture détaillée de PRs, lisibilité, refactoring et gestion des erreurs.</p>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="layers" class="w-4 h-4 text-amber-400"></i> <span data-i18n="rev_card2_title">Conformité Standards</span>
+                            </div>
+                            <p data-i18n="rev_card2_desc" class="text-xs text-slate-400 text-justify">Vérification de l'accessibilité (WCAG), compatibilité navigateurs et normes.</p>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="flag" class="w-4 h-4 text-amber-400"></i> <span data-i18n="rev_card3_title">Réduction Dette</span>
+                            </div>
+                            <p data-i18n="rev_card3_desc" class="text-xs text-slate-400 text-justify">Recommandations d'optimisation et plans d'action de modernisation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 6: Conseil / Pédagogie -->
+                <div id="content-conseil" class="service-panel hidden space-y-8">
+                    <div class="flex flex-col md:flex-row items-start justify-between gap-6">
+                        <div class="space-y-3 max-w-2xl">
+                            <span data-i18n="conseil_service_num" class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-bold border border-cyan-500/20">Service 06 / 06</span>
+                            <h3 data-i18n="conseil_title" class="text-2xl sm:text-3xl font-bold text-white">Conseil & Pédagogie</h3>
+                            <p data-i18n="conseil_desc" class="text-slate-400 text-sm leading-relaxed text-justify">
+                                Accompagnement, formation et transfert de compétences en électronique. Montée en compétence de vos équipes et vulgarisation des sujets techniques.
+                            </p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 shrink-0">
+                            <i data-lucide="graduation-cap" class="w-10 h-10"></i>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-800/80">
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="presentation" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="conseil_card1_title">Formation & Ateliers</span>
+                            </div>
+                            <p data-i18n="conseil_card1_desc" class="text-xs text-slate-400 text-justify">Sessions de formation sur mesure autour de l'électronique et de vos outils.</p>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="users" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="conseil_card2_title">Accompagnement Technique</span>
+                            </div>
+                            <p data-i18n="conseil_card2_desc" class="text-xs text-slate-400 text-justify">Conseil ponctuel ou récurrent pour guider vos choix techniques et vos équipes.</p>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card">
+                            <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                                <i data-lucide="lightbulb" class="w-4 h-4 text-cyan-400"></i> <span data-i18n="conseil_card3_title">Vulgarisation</span>
+                            </div>
+                            <p data-i18n="conseil_card3_desc" class="text-xs text-slate-400 text-justify">Explication claire de sujets techniques complexes pour des publics non spécialistes.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 border-t border-slate-800/60">
+            <div class="max-w-3xl mx-auto text-center">
+                <!-- Contact Infos -->
+                <div>
+                    <div class="inline-flex items-center justify-center gap-2 text-indigo-400 text-xs font-bold tracking-widest uppercase mb-3">
+                        <i data-lucide="mail" class="w-4 h-4"></i> <span data-i18n="contact_tag">Contact</span>
+                    </div>
+                    <h2 data-i18n="contact_title" class="text-3xl sm:text-4xl font-bold text-white mb-4">
+                        Travaillons ensemble !
+                    </h2>
+                    <p data-i18n="contact_desc" class="text-slate-400 leading-relaxed mb-8 mx-auto text-justify">
+                        Pour une demande de devis, d'appel téléphonique préalable ou toute autre question merci de m'écrire par email à l'adresse suivante. Je suis également présent sur les plateformes ci-dessous avec des liens cliquables vers mes pages.
+                    </p>
+
+                    <!-- Quick Copy Email Box -->
+                    <div class="max-w-md mx-auto p-4 rounded-2xl glass-card flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+                        <div class="flex items-center gap-3 overflow-hidden">
+                            <div class="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 shrink-0">
+                                <i data-lucide="at-sign" class="w-5 h-5"></i>
+                            </div>
+                            <div class="truncate text-left">
+                                <div data-i18n="email_label" class="text-[10px] text-slate-400 uppercase font-semibold">Adresse E-mail</div>
+                                <div id="email-text" class="text-sm font-semibold text-white truncate">contact@nuwanda-engineering.com</div>
+                            </div>
+                        </div>
+                        <button onclick="copyEmail()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 transition-colors flex items-center gap-1.5 shrink-0">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span data-i18n="btn_copy">Copier</span>
+                        </button>
+                    </div>
+
+                    <!-- Social Networks -->
+                    <div class="space-y-4 flex flex-col items-center">
+                        <span data-i18n="social_label" class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Retrouvez-moi sur :</span>
+                        <div class="flex justify-center gap-3">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl glass-card hover:text-indigo-400 transition-colors flex items-center justify-center">
+                                <i data-lucide="github" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl glass-card hover:text-indigo-400 transition-colors flex items-center justify-center">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl glass-card hover:text-indigo-400 transition-colors flex items-center justify-center">
+                                <i data-lucide="twitter" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="politique-ia" class="py-20 border-t border-slate-800/60">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <div class="inline-flex items-center gap-2 text-indigo-400 text-xs font-bold tracking-widest uppercase mb-3">
+                        <i data-lucide="bot" class="w-4 h-4"></i> <span data-i18n="ai_tag">Charte & Transparence</span>
+                    </div>
+                    <h2 data-i18n="ai_title" class="text-3xl sm:text-4xl font-bold text-white mb-4">Politique d'Utilisation de l'IA</h2>
+                    <p data-i18n="ai_desc" class="text-slate-400 text-sm max-w-2xl mx-auto text-justify">
+                        Découvrez comment l'Intelligence Artificielle est intégrée de manière responsable, éthique et transparente dans notre workflow d'ingénierie.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Principle 1 -->
+                    <div class="p-6 rounded-2xl glass-card space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                                <i data-lucide="user-check" class="w-5 h-5"></i>
+                            </div>
+                            <h3 data-i18n="ai_p1_title" class="text-base font-bold text-white">Comment je l'utilise</h3>
+                        </div>
+                        <ul class="text-xs text-slate-400 leading-relaxed list-disc list-inside space-y-1.5">
+                            <li data-i18n="ai_p1_li1" class="text-justify">Accélérer la rédaction de premiers jets : code, schémas, documentation technique.</li>
+                            <li data-i18n="ai_p1_li2" class="text-justify">Explorer rapidement plusieurs pistes de conception ou d'architecture.</li>
+                            <li data-i18n="ai_p1_li3" class="text-justify">Assister la relecture et la détection d'incohérences avant une revue humaine.</li>
+                            <li data-i18n="ai_p1_li4" class="text-justify">Vulgariser des sujets techniques complexes pour les clients non spécialistes.</li>
+                            <li data-i18n="ai_p1_li5" class="text-justify">Chaque résultat produit est vérifié et validé par un humain avant utilisation.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Principle 2 -->
+                    <div class="p-6 rounded-2xl glass-card space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2.5 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                                <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                            </div>
+                            <h3 data-i18n="ai_p2_title" class="text-base font-bold text-white">Comment je ne l'utilise pas</h3>
+                        </div>
+                        <ul class="text-xs text-slate-400 leading-relaxed list-disc list-inside space-y-1.5">
+                            <li data-i18n="ai_p2_li1" class="text-justify">Aucune donnée sensible, code propriétaire ou information confidentielle transmise à un modèle public sans consentement explicite.</li>
+                            <li data-i18n="ai_p2_li2" class="text-justify">Jamais de livrable final généré et transmis sans relecture ni validation humaine.</li>
+                            <li data-i18n="ai_p2_li3" class="text-justify">L'IA ne remplace pas l'expertise ni le jugement technique de l'ingénieur.</li>
+                            <li data-i18n="ai_p2_li4" class="text-justify">Aucune décision engageant la sécurité, la conformité ou la fiabilité d'un système n'est prise sur la seule base d'une suggestion d'IA.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Principle 3 -->
+                    <div class="p-6 rounded-2xl glass-card space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2.5 rounded-xl bg-pink-500/10 text-pink-400 border border-pink-500/20">
+                                <i data-lucide="sparkles" class="w-5 h-5"></i>
+                            </div>
+                            <h3 data-i18n="ai_p3_title" class="text-base font-bold text-white">Optimisation & Gain de Valeur</h3>
+                        </div>
+                        <p data-i18n="ai_p3_desc" class="text-xs text-slate-400 leading-relaxed text-justify">
+                            L'utilisation des outils IA (génération de squelettes, suggestions d'optimisation) permet de se concentrer sur la résolution de problèmes complexes et d'offrir des délais de livraison très réduits.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-4 rounded-2xl bg-indigo-500/5 border border-indigo-500/15 text-center">
+                    <p data-i18n="ai_banner" class="text-xs text-indigo-300 text-justify">
+                        💡 Un engagement de transparence garantie sur l'ensemble de vos projets numériques.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="informations" class="py-12 border-t border-slate-800/60">
+            <div class="max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-2 text-indigo-400 text-xs font-bold tracking-widest uppercase mb-5">
+                    <i data-lucide="info" class="w-4 h-4"></i> <span data-i18n="info_tag">Informations</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl glass-card flex items-start gap-3">
+                        <i data-lucide="briefcase" class="w-4 h-4 text-indigo-400 mt-0.5 shrink-0"></i>
+                        <div>
+                            <p data-i18n="info_status_label" class="text-xs text-slate-500 uppercase tracking-wide mb-1">Statut</p>
+                            <p data-i18n="info_status_value" class="text-sm text-slate-300 leading-relaxed">Micro-entreprise (entreprise individuelle en la personne de XXX)</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl glass-card flex items-start gap-3">
+                        <i data-lucide="credit-card" class="w-4 h-4 text-purple-400 mt-0.5 shrink-0"></i>
+                        <div>
+                            <p data-i18n="info_payment_label" class="text-xs text-slate-500 uppercase tracking-wide mb-1">Méthode de règlement</p>
+                            <p data-i18n="info_payment_value" class="text-sm text-slate-300 leading-relaxed">Virement bancaire</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl glass-card flex items-start gap-3">
+                        <i data-lucide="cpu" class="w-4 h-4 text-pink-400 mt-0.5 shrink-0"></i>
+                        <div>
+                            <p data-i18n="info_software_label" class="text-xs text-slate-500 uppercase tracking-wide mb-1">Logiciel de conception</p>
+                            <p data-i18n="info_software_value" class="text-sm text-slate-300 leading-relaxed">KiCad 10.0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 py-8 bg-slate-950/80 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div data-i18n="footer_copy" class="text-xs text-slate-500">
+                © Nuwanda Engineering — Tous droits réservés.
+            </div>
+            <div class="flex flex-wrap gap-4 text-xs text-slate-400 justify-center">
+                <a href="#accueil" data-i18n="footer_top" class="hover:text-white transition-colors">Haut de page</a>
+                <a href="#services" data-i18n="nav_services" class="hover:text-white transition-colors">Services</a>
+                <a href="#contact" data-i18n="nav_contact" class="hover:text-white transition-colors">Contact</a>
+                <a href="#politique-ia" data-i18n="nav_ai_policy" class="hover:text-white transition-colors">Politique IA</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="glass-panel border border-indigo-500/30 px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-slate-100 text-sm">
+            <div id="toast-icon" class="text-indigo-400">
+                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+            </div>
+            <span id="toast-message">Message envoyé !</span>
+        </div>
+    </div>
+
+    <script>
+        // Internationalization Dictionaries
+        const translations = {
+            fr: {
+                nav_home: "Accueil",
+                nav_about: "À propos",
+                nav_services: "Services",
+                nav_contact: "Contact",
+                nav_ai_policy: "Politique IA",
+                
+                hero_badge: "Disponible pour de nouvelles missions",
+                hero_title_1: "Ingénierie & Services",
+                hero_title_2: "d'électronique sur-mesure",
+                hero_desc: "Services de conception de circuits électroniques analogiques et numériques. Accompagnement de l'architecture à l'analyse, la simulation et la revue du système.",
+                hero_cta_services: "Découvrir mes services",
+                hero_cta_contact: "Discuter d'un projet",
+                
+                metric_1_title: "Savoir-faire",
+                metric_1_sub: "4 ans de profession dans le domaine",
+                metric_2_title: "Proximité",
+                metric_2_sub: "Accompagnement constant",
+                metric_3_title: "Rigueur",
+                metric_3_sub: "Expérience dans l'aérospatial",
+                metric_4_title: "Sur-mesure",
+                metric_4_sub: "Solutions au cas par cas",
+                
+                about_tag: "À propos de Nuwanda Engineering",
+                about_title: "Présentation de mon profil",
+                about_formation_title: "Ma formation",
+                about_experience_title: "Mon expérience",
+                about_p1: "Je suis diplômé d'un Bachelor Universitaire de Technologie (BUT, anciennement DUT) en Génie Electrique et Informatique industrielle. J'ai également un diplôme d'ingénieur en Génie Electrique de l'INSA Lyon. Ces deux formations très concrètes m'ont créé une culture de l'électronique vaste et un goût prononcé pour le domaine. Des exemples de matières étudiées et mises en pratique sont: Systèmes électroniques, Automatique, Télécommunication, Automatismes, Electrotechnique, Informatique, Traitement de signal.",
+                about_p2: "Depuis ma formation j'ai occupé deux postes de concepteur électronique dans le domaine de l'aérospatial. Mon métier consiste, à partir d'un besoin haut niveau, à créer le schéma électronique qui y répond. Depuis celui-ci on dessine et fabrique le PCB puis on le teste et le livre. J'interviens à toutes les étapes d'analyse, de documentation, de revue du projet. Je suis toujours en poste actuellement ce qui dimensionne les projets que j'accepte ici.",
+                about_examples_title: "Exemple de fonctions électroniques réalisées",
+                about_ex_1: "Interfaçage de tous types de capteurs",
+                about_ex_2: "Contrôle moteurs (DC, pas à pas...)",
+                about_ex_3: "Conversion de puissance (Buck, Boost, LDO...)",
+                about_ex_4: "PWM",
+                about_ex_5: "Asservissement PID (analogique ou numérique)",
+                about_ex_6: "Interfaçage microcontrôleurs et FPGA",
+                about_ex_7: "Mesure de température",
+                about_ex_8: "Protection de circuits: over-voltage, under-voltage, over-current, inrush, ESD, reverse voltage, reverse current",
+                about_ex_9: "Interfaçage de tous types de mémoires",
+                about_ex_10: "Communication haute vitesse Ethernet / PCI",
+                about_ex_11: "Protocoles de communication et couches physiques: UART, I2C, SPI / QSPI, JTAG, CAN, RS-422, RS-485",
+                about_ex_12: "Watchdog, power-on reset",
+                about_ex_13: "Séquencement d'alimentations...",
+                info_tag: "Informations",
+                info_status_label: "Statut",
+                info_status_value: "Micro-entreprise (entreprise individuelle en la personne de Loïc DEMIN)",
+                info_payment_label: "Méthode de règlement",
+                info_payment_value: "Virement bancaire",
+                info_software_label: "Logiciel de conception",
+                info_software_value: "KiCad 10.0",
+                
+                services_tag: "Expertise & Prestations",
+                services_title: "Mes Services",
+                services_desc: "Six domaines d’intervention pour couvrir les principales étapes de vos projets électroniques, de la conception au déploiement du système.",
+                tab_conception: "Conception",
+                tab_analyse: "Analyse",
+                tab_documentation: "Documentation",
+                tab_simulation: "Simulation",
+                tab_revue: "Revue",
+                tab_conseil: "Conseil / Pédagogie",
+                
+                conc_service_num: "Service 01 / 06",
+                conc_title: "Conception électronique",
+                conc_desc: "Conception de schémas électroniques à partir d’un besoin ou d’un cahier des charges, avec placement et routage si nécessaire. Livraison de fichiers de fabrication ou d’une carte clé en main, avec sélection des composants selon les compromis coût, délai et performance.",
+                conc_card1_title: "Schématique",
+                conc_card1_desc: "Conception d’un schéma répondant aux exigences fonctionnelles, avec vérification du fonctionnement par simulation lorsque pertinent.",
+                conc_card2_title: "Routage PCB",
+                conc_card2_desc: "Réalisation d’un PCB fonctionnel à partir du schéma, prêt pour la fabrication et l’assemblage.",
+                conc_card3_title: "Composants",
+                conc_card3_desc: "Sélection des composants selon les contraintes de coût, délai, performance, qualité et disponibilité fournisseur.",
+
+                ana_service_num: "Service 02 / 06",
+                ana_title: "Analyse de circuits",
+                ana_desc: "Analyse approfondie d’un circuit afin d’évaluer, expliquer ou anticiper son comportement, à partir d’un schéma ou d’un circuit existant.",
+                ana_card1_title: "Analyse pire cas (Worst-Case Analysis)",
+                ana_card1_desc: "Évaluation du comportement du circuit dans les conditions les plus défavorables : vieillissement, température, tolérances et autres variations.",
+                ana_card2_title: "Analyse de stress / derating (Parts Stress Analysis)",
+                ana_card2_desc: "Évaluation du stress subi par les composants au regard de leurs caractéristiques et de leurs limites admissibles.",
+                ana_card3_title: "Dissipation thermique",
+                ana_card3_desc: "Préparation des données nécessaires à l’analyse thermique d’un PCB, notamment les dissipations maximales par repère.",
+
+                doc_service_num: "Service 03 / 06",
+                doc_title: "Documentation technique du système",
+                doc_desc: "Rédaction des documents techniques nécessaires au projet, avec possibilité d’intégrer les analyses réalisées et les dossiers de justification associés.",
+                doc_card1_title: "Spécification / Cahier des charges",
+                doc_card1_desc: "Transformation du besoin en spécification technique servant de référence pour le développement du système électronique.",
+                doc_card2_title: "Dossiers de justification / d'architecture",
+                doc_card2_desc: "Justification des choix de conception et description de l’architecture du système sous forme de blocs fonctionnels.",
+                doc_card3_title: "Autres documents",
+                doc_card3_desc: "Notes techniques, documents d’interface (ICD), plans, rapports de tests et autres livrables utiles au projet.",
+
+                sim_service_num: "Service 04 / 06",
+                sim_title: "Simulation",
+                sim_desc: "Simulation de circuits ou de fonctions sous LTspice pour valider un principe, expliquer un comportement ou analyser un point particulier.",
+                sim_card1_title: "Prototypes Démos",
+                sim_card1_desc: "Prototypes fonctionnels permettant de valider rapidement une architecture ou une fonction clé.",
+                sim_card2_title: "Tests de Charge",
+                sim_card2_desc: "Simulation de conditions de charge représentatives pour observer le comportement du système et identifier ses limites.",
+                sim_card3_title: "Modélisation de Flux",
+                sim_card3_desc: "Modélisation de scénarios et de chaînes fonctionnelles pour explorer différents comportements avant réalisation.",
+
+                rev_service_num: "Service 05 / 06",
+                rev_title: "Revue de circuits existants",
+                rev_desc: "Revue d’un schéma et/ou d’un routage existant pour valider un jalon ou identifier l’origine d’un problème. Livraison d’un rapport annoté avec recommandations, risques et actions correctives.",
+                rev_card1_title: "Schémas",
+                rev_card1_desc: "Vérification des bonnes pratiques, des symboles, du pinout et de la cohérence fonctionnelle du schéma.",
+                rev_card2_title: "PCB",
+                rev_card2_desc: "Vérification des bonnes pratiques de placement, de routage et de définition du stackup.",
+                rev_card3_title: "Limites",
+                rev_card3_desc: "Identification des points nécessitant une validation spécifique auprès du fabricant, notamment sur les aspects DFM.",
+
+                conseil_service_num: "Service 06 / 06",
+                conseil_title: "Conseil & Pédagogie",
+                conseil_desc: "Sessions de conseil ou de formation sur mesure autour d’un sujet électronique défini en amont.",
+                conseil_card1_title: "Conseil",
+                conseil_card1_desc: "Éclairage sur un sujet ciblé pour guider les choix techniques, évaluer une faisabilité ou cadrer une approche.",
+                conseil_card2_title: "Supports écrits",
+                conseil_card2_desc: "Création de mémos et de fiches techniques pour faciliter la transmission des connaissances au sein de l’équipe.",
+                conseil_card3_title: "Vulgarisation",
+                conseil_card3_desc: "Explication claire de sujets techniques complexes pour des publics non spécialistes.",
+
+                contact_tag: "Contact",
+                contact_title: "Travaillons ensemble !",
+                contact_desc: "Pour une demande de devis, d'appel téléphonique préalable ou toute autre question merci de m'écrire par email à l'adresse suivante. Je suis également présent sur les plateformes ci-dessous avec des liens cliquables vers mes pages.",
+                btn_copy: "Copier",
+                social_label: "Retrouvez-moi sur :",
+
+                ai_tag: "Charte & Transparence",
+                ai_title: "Politique d'Utilisation de l'IA",
+                ai_desc: "Formé avant l'essor de l'intelligence artificielle et notamment les LLM, je les intègre à mon métier de concepteur depuis 2024 en suivant de près leurs évolutions. J'ai vu leur culture générale et leurs capacités de raisonnement se développer au point de devenir pertinentes sur des sujets pointus. Cependant je respecte les principes suivants pour éviter que l'utilisation que j'en fais ne desserve la qualité de mon travail.",
+                ai_p1_title: "Comment je l'utilise",
+                ai_p1_li1: "Recherche approfondie de composants spécifiques avec des critères précis",
+                ai_p1_li2: "Création d'outils comme ce site web en HTML",
+                ai_p1_li3: "Questions administratives avec vérification des informations",
+                ai_p1_li4: "Codage de petites fonctions que je retravaille et annote",
+                ai_p1_li5: "Questions techniques sur des technologies ou méthodes existantes que je recherche ensuite par ailleurs.",
+                ai_p2_title: "Comment je ne l'utilise pas",
+                ai_p2_li1: "Rédaction de document, de texte ou de mail",
+                ai_p2_li2: "Calculs",
+                ai_p2_li3: "Choix techniques",
+                ai_p2_li4: "Revues (confidentialité).",
+                ai_p3_title: "Comment je reste à jour",
+                ai_p3_desc: "Je maintiens une veille technologique constante, que ce soit sur les nouveaux outils en lien avec l'électronique (design de schéma, auto-routage, simulation...) et sur les capacités des derniers modèles de langages (benchmark avec des questions pointues).",
+                ai_banner: "💡 Un engagement de transparence et de maîtrise de l’IA sur l’ensemble de vos projets électroniques.",
+
+                footer_copy: "© " + new Date().getFullYear() + " Nuwanda Engineering — Tous droits réservés.",
+                footer_top: "Haut de page",
+                toast_copied: "E-mail copié dans le presse-papier !",
+            },
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_services: "Services",
+                nav_contact: "Contact",
+                nav_ai_policy: "AI Policy",
+
+                hero_badge: "Available for new projects",
+                hero_title_1: "Engineering & Services",
+                hero_title_2: "in Custom Electronics",
+                hero_desc: "Design services for analog and digital electronic circuits. Support from architecture through analysis, simulation, and system review.",
+                hero_cta_services: "Discover my services",
+                hero_cta_contact: "Discuss a project",
+
+                metric_1_title: "Know-How",
+                metric_1_sub: "4 years of experience in the field",
+                metric_2_title: "Close Support",
+                metric_2_sub: "Continuous guidance",
+                metric_3_title: "Rigor",
+                metric_3_sub: "Experience in aerospace",
+                metric_4_title: "Tailored",
+                metric_4_sub: "Case-by-case solutions",
+
+                about_tag: "About Nuwanda Engineering",
+                about_title: "My Profile",
+                about_formation_title: "My Education",
+                about_experience_title: "My Experience",
+                about_p1: "I hold a Bachelor Universitaire de Technologie (BUT, formerly DUT — a French undergraduate technical degree) in Electrical Engineering and Industrial Computing, as well as an engineering degree in Electrical Engineering from INSA Lyon. These two highly hands-on programs gave me a broad grounding in electronics and a real passion for the field. Examples of subjects studied and applied include: electronic systems, control theory, telecommunications, automation, electrical engineering, computer science, and signal processing.",
+                about_p2: "Since completing my training, I have held two electronic design positions in the aerospace sector. My job involves taking a high-level requirement and creating the electronic schematic that meets it. From there, the PCB is laid out and manufactured, then tested and delivered. I'm involved at every stage: analysis, documentation, and project review. I'm still employed in this role today, which shapes the scope of the projects I take on here.",
+                about_examples_title: "Examples of electronic functions delivered",
+                about_ex_1: "Interfacing with all types of sensors",
+                about_ex_2: "Motor control (DC, stepper, etc.)",
+                about_ex_3: "Power conversion (Buck, Boost, LDO, etc.)",
+                about_ex_4: "PWM",
+                about_ex_5: "PID control loops (analog or digital)",
+                about_ex_6: "Microcontroller and FPGA interfacing",
+                about_ex_7: "Temperature measurement",
+                about_ex_8: "Circuit protection: over-voltage, under-voltage, over-current, inrush, ESD, reverse voltage, reverse current",
+                about_ex_9: "Interfacing with all types of memory",
+                about_ex_10: "High-speed Ethernet / PCI communication",
+                about_ex_11: "Communication protocols and physical layers: UART, I2C, SPI / QSPI, JTAG, CAN, RS-422, RS-485",
+                about_ex_12: "Watchdog, power-on reset",
+                about_ex_13: "Power supply sequencing...",
+                info_tag: "Information",
+                info_status_label: "Status",
+                info_status_value: "Sole proprietorship (individual business operated by Loïc DEMIN)",
+                info_payment_label: "Payment method",
+                info_payment_value: "Bank transfer",
+                info_software_label: "Design software",
+                info_software_value: "KiCad 10.0",
+
+                services_tag: "Expertise & Offerings",
+                services_title: "My Services",
+                services_desc: "Six areas of expertise covering the main stages of your electronics projects, from design through system deployment.",
+                tab_conception: "Design",
+                tab_analyse: "Analysis",
+                tab_documentation: "Documentation",
+                tab_simulation: "Simulation",
+                tab_revue: "Review",
+                tab_conseil: "Consulting / Training",
+
+                conc_service_num: "Service 01 / 06",
+                conc_title: "Electronic Design",
+                conc_desc: "Design of electronic schematics based on a requirement or specification, with placement and routing when necessary. Delivery of manufacturing files or a turnkey board, with component selection based on cost, lead-time, and performance trade-offs.",
+                conc_card1_title: "Schematic Design",
+                conc_card1_desc: "Design of a schematic meeting the functional requirements, with operation verified through simulation where relevant.",
+                conc_card2_title: "PCB Layout",
+                conc_card2_desc: "Creation of a functional PCB from the schematic, ready for manufacturing and assembly.",
+                conc_card3_title: "Components",
+                conc_card3_desc: "Component selection based on cost, lead-time, performance, quality, and supplier availability constraints.",
+
+                ana_service_num: "Service 02 / 06",
+                ana_title: "Circuit Analysis",
+                ana_desc: "In-depth analysis of a circuit to assess, explain, or anticipate its behavior, based on an existing schematic or circuit.",
+                ana_card1_title: "Worst-Case Analysis",
+                ana_card1_desc: "Assessment of circuit behavior under the most unfavorable conditions: aging, temperature, tolerances, and other variations.",
+                ana_card2_title: "Stress / Derating Analysis (Parts Stress Analysis)",
+                ana_card2_desc: "Assessment of the stress placed on components relative to their ratings and allowable limits.",
+                ana_card3_title: "Thermal Dissipation",
+                ana_card3_desc: "Preparation of the data needed for PCB thermal analysis, including maximum dissipation per reference designator.",
+
+                doc_service_num: "Service 03 / 06",
+                doc_title: "System Technical Documentation",
+                doc_desc: "Writing of the technical documents required for the project, with the option to incorporate completed analyses and associated justification files.",
+                doc_card1_title: "Specification / Requirements",
+                doc_card1_desc: "Translation of the requirement into a technical specification used as a reference for the development of the electronic system.",
+                doc_card2_title: "Justification & Architecture Files",
+                doc_card2_desc: "Justification of design choices and description of the system architecture in the form of functional blocks.",
+                doc_card3_title: "Other Documents",
+                doc_card3_desc: "Technical notes, interface control documents (ICDs), drawings, test reports, and other deliverables useful to the project.",
+
+                sim_service_num: "Service 04 / 06",
+                sim_title: "Simulation",
+                sim_desc: "Simulation of circuits or functions in LTspice to validate a concept, explain a behavior, or analyze a specific point.",
+                sim_card1_title: "Demo Prototypes",
+                sim_card1_desc: "Functional prototypes for quickly validating an architecture or a key function.",
+                sim_card2_title: "Load Testing",
+                sim_card2_desc: "Simulation of representative load conditions to observe system behavior and identify its limits.",
+                sim_card3_title: "Flow Modeling",
+                sim_card3_desc: "Modeling of scenarios and functional chains to explore different behaviors before implementation.",
+
+                rev_service_num: "Service 05 / 06",
+                rev_title: "Existing Circuit Review",
+                rev_desc: "Review of an existing schematic and/or layout to validate a milestone or identify the source of an issue. Delivery of an annotated report with recommendations, risks, and corrective actions.",
+                rev_card1_title: "Schematics",
+                rev_card1_desc: "Verification of best practices, symbols, pinout, and the functional consistency of the schematic.",
+                rev_card2_title: "PCB",
+                rev_card2_desc: "Verification of placement and routing best practices and stack-up definition.",
+                rev_card3_title: "Limitations",
+                rev_card3_desc: "Identification of points requiring specific validation with the manufacturer, particularly DFM-related aspects.",
+
+                conseil_service_num: "Service 06 / 06",
+                conseil_title: "Consulting & Training",
+                conseil_desc: "Tailored consulting or training sessions on an electronics topic defined in advance.",
+                conseil_card1_title: "Consulting",
+                conseil_card1_desc: "Insight on a targeted topic to guide technical choices, assess feasibility, or frame an approach.",
+                conseil_card2_title: "Written Materials",
+                conseil_card2_desc: "Creation of memos and technical fact sheets to facilitate knowledge transfer within the team.",
+                conseil_card3_title: "Plain-Language Explanations",
+                conseil_card3_desc: "Clear explanation of complex technical topics for non-specialist audiences.",
+
+                contact_tag: "Contact",
+                contact_title: "Let's work together!",
+                contact_desc: "For a quote request, a preliminary phone call, or any other question, feel free to email me at the address below. I'm also present on the platforms below, with clickable links to my pages.",
+                email_label: "Email Address",
+                btn_copy: "Copy",
+                social_label: "Find me on:",
+
+                ai_tag: "Charter & Transparency",
+                ai_title: "AI Usage Policy",
+                ai_desc: "Trained before the rise of artificial intelligence, and LLMs in particular, I've been integrating them into my work as a designer since 2024, closely following their progress. I've watched their general knowledge and reasoning abilities grow to the point of becoming relevant even on highly technical subjects. That said, I follow the principles below so that the way I use them doesn't compromise the quality of my work.",
+                ai_p1_title: "How I use it",
+                ai_p1_li1: "In-depth research on specific components with precise criteria",
+                ai_p1_li2: "Creating tools such as this HTML website",
+                ai_p1_li3: "Administrative questions, with the information verified afterward",
+                ai_p1_li4: "Coding small functions that I then rework and annotate",
+                ai_p1_li5: "Technical questions about existing technologies or methods, which I then research further elsewhere.",
+                ai_p2_title: "How I don't use it",
+                ai_p2_li1: "Writing documents, text, or emails",
+                ai_p2_li2: "Calculations",
+                ai_p2_li3: "Technical decisions",
+                ai_p2_li4: "Reviews (confidentiality).",
+                ai_p3_title: "How I stay current",
+                ai_p3_desc: "I keep a constant watch on new technology — both on tools related to electronics (schematic design, auto-routing, simulation, etc.) and on the capabilities of the latest language models, which I benchmark with highly technical questions.",
+                ai_banner: "💡 A commitment to transparency and controlled AI use across all of your electronics projects.",
+
+                footer_copy: "© " + new Date().getFullYear() + " Nuwanda Engineering — All rights reserved.",
+                footer_top: "Back to top",
+                toast_copied: "Email copied to clipboard!"
+            }
+        };
+
+        let currentLang = 'fr';
+
+        // Language Switcher Handler
+        function setLanguage(lang) {
+            currentLang = lang;
+            const dict = translations[lang];
+            if (!dict) return;
+
+            // Update Language Toggle Active Classes
+            const frBtns = document.querySelectorAll('.btn-lang-fr');
+            const enBtns = document.querySelectorAll('.btn-lang-en');
+
+            if (lang === 'fr') {
+                frBtns.forEach(btn => {
+                    btn.classList.add('bg-indigo-600', 'text-white');
+                    btn.classList.remove('text-slate-400');
+                });
+                enBtns.forEach(btn => {
+                    btn.classList.remove('bg-indigo-600', 'text-white');
+                    btn.classList.add('text-slate-400');
+                });
+            } else {
+                enBtns.forEach(btn => {
+                    btn.classList.add('bg-indigo-600', 'text-white');
+                    btn.classList.remove('text-slate-400');
+                });
+                frBtns.forEach(btn => {
+                    btn.classList.remove('bg-indigo-600', 'text-white');
+                    btn.classList.add('text-slate-400');
+                });
+            }
+
+            // Update text contents
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.textContent = dict[key];
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (dict[key]) {
+                    el.placeholder = dict[key];
+                }
+            });
+
+            try {
+                localStorage.setItem('nuwanda_lang', lang);
+            } catch (e) {}
+        }
+
+        // Initialize Lucide Icons & Saved Language
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            const savedLang = localStorage.getItem('nuwanda_lang') || 'fr';
+            setLanguage(savedLang);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Services Tab Switcher Logic
+        function switchServiceTab(tabName) {
+            // Hide all tab content panels
+            const panels = document.querySelectorAll('.service-panel');
+            panels.forEach(panel => panel.classList.add('hidden'));
+
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => btn.classList.remove('active-tab'));
+
+            // Show target panel and activate button
+            const selectedPanel = document.getElementById('content-' + tabName);
+            const selectedTab = document.getElementById('tab-' + tabName);
+
+            if (selectedPanel && selectedTab) {
+                selectedPanel.classList.remove('hidden');
+                selectedTab.classList.add('active-tab');
+            }
+        }
+
+        // Toast Notification System
+        function showToast(message, isSuccess = true) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Copy Email to Clipboard
+        function copyEmail() {
+            const emailText = document.getElementById('email-text').innerText;
+            const dict = translations[currentLang];
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(emailText).then(() => {
+                    showToast(dict.toast_copied);
+                }).catch(() => {
+                    fallbackCopy(emailText, dict.toast_copied);
+                });
+            } else {
+                fallbackCopy(emailText, dict.toast_copied);
+            }
+        }
+
+        function fallbackCopy(text, successMsg) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast(successMsg);
+            } catch (err) {
+                showToast('Error / Erreur', false);
+            }
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>
